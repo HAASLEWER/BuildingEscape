@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "Runtime/Engine/Classes/Engine/TriggerVolume.h"
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "OpenDoor.generated.h"
@@ -24,5 +25,15 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+private:
+	UPROPERTY(VisibleAnywhere)
+	float OpenAngle = 90.0f;
+
+	UPROPERTY(EditAnywhere)
+	ATriggerVolume* PressurePlate = nullptr;
+
+	//AActor* Owner = nullptr; //The Owning door
+
+	//Returns total mass in kg
+	//float GetTotalMassOfActorsOnPlate();
 };
